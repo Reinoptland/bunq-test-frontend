@@ -1,0 +1,28 @@
+{
+  "name": "Roos X Bunq",
+  "short_name": "Roos X Bunq",
+  "icons": [
+    {
+      "src": "192.png",
+      "sizes":"192x192",
+      "type": "image/png"
+    },
+    {
+      "src": " 512.png",
+      "sizes":" 512x512",
+      "type": "image/png"
+    }
+  ],
+  "prefer_related_applications": true,
+  "related_applications": [
+    {
+      "platform": "play",
+      "id": "com.google.samples.apps.iosched"
+    }
+  ],
+  "display": "fullscreen",
+  "start_url": "./index.html",
+  "theme_color": "#000000",
+  "background_color": "#ffffff",
+  "orientation": "portrait"
+}

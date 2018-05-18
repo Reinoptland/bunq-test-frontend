@@ -1,0 +1,321 @@
+body {
+  margin: 20px;
+  padding: 20px;
+  color: #51595f;
+  padding-bottom:90px
+}
+
+@font-face {
+  font-family: 'BrandonText-Regular';
+  src: local('brandontext-regular'), url(./fonts/brandontext-regular.woff) format('woff');
+}
+
+@font-face {
+  font-family: 'BrandonText-Bold';
+  src: local('brandontext-bold'), url(./fonts/brandontext-bold.woff) format('woff');
+}
+
+.App {
+  text-align: center;
+}
+
+.App-header {
+  background-color: #222;
+  font-family: BrandonText-Regular, sans-serif;
+  height: 150px;
+  padding: 20px;
+  color: white;
+}
+
+.App-title {
+  font-size: 1.5em;
+}
+
+.App-intro {
+  font-size: large;
+}
+
+p {
+  font-family: 'BrandonText-Regular';
+  font-size: 20px;
+  color: #51595f;
+}
+
+h1 {
+  font-family: 'BrandonText-Bold';
+  font-size: 40px;
+  color: #51595f;
+}
+
+h2 {
+  font-family: 'BrandonText-Regular';
+}
+
+h3 {
+  font-family: 'BrandonText-Regular';
+}
+
+h4 {
+  font-family: 'BrandonText-Regular';
+}
+.signupForm {
+  margin-right: 5%;
+}
+
+.signupFormLabels{
+  margin-bottom: 10px;
+}
+
+.signupFormLabels label {
+  margin-right: 10px;
+}
+
+.signupFormLabels input {
+  padding: 5px 30px 5px 3px;
+}
+
+/* .signupFormLabels input:focus {
+  outline: 2px solid #e84435;
+  color: #51595f
+} */
+
+.roosTitle {
+  margin: 2rem 0 3rem 0;
+}
+
+.signupButton {
+  margin-top: 20px;
+  padding: 10px 25px;
+  border-radius: 3px;
+  font-size: 14px;
+  text-transform: uppercase;
+  background: linear-gradient(0.25turn,#e84435, #f57f17);
+  color: white;
+  border: none;
+  font-weight: bold;
+  letter-spacing: 1px;
+  width: 100%;
+}
+
+.signupButton:hover{
+  background: #e84435;
+}
+  
+.feedbackForm input {
+  border: 1px solid #bec1c2;
+  margin-left: 10px;
+}
+
+#PieChart {
+  margin:auto;
+}
+.feedbackForm label{
+  margin-left: 10px;
+  font-family: 'BrandonText-Bold';
+}
+
+.feedbackForm textarea:focus{
+  outline: 2px solid #e84435;
+  color: #51595f;
+}
+
+.feedbackForm textarea{
+  padding: 5px 5px 30px 5px;
+  width: 230px;
+  border-radius: 3px;
+  color: #51595f;
+  border-color: #bec1c2;
+  margin-left: 10px;
+}
+
+.radio {
+  margin: 0 0 0 -100px; 
+}
+
+.bottom-nav {
+    background-color: #fff;
+    /* overflow: auto;  */
+    padding-top: 10px;
+    padding-left: 50px;
+    padding-right: 50px;
+    position: fixed;
+    bottom: 0px;
+    left:0px; 
+    right:0px;  
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: nowrap;
+}
+
+.add-button img {
+    position: relative; 
+    bottom: 48%
+}
+
+.remarksLabel{
+  margin-right: 20px;
+  bottom: 200px;
+ }
+
+.feedbackTitle {
+  font-size: 28px;
+  font-family: 'BrandonText-Bold';
+  margin-top: 50px;
+}
+
+.feedbackText {
+  font-size: 20px;
+  font-family: 'BrandonText-Bold';
+}
+
+.feedbackButton{
+  margin-top: 30px;
+  padding: 10px 25px;
+  border-radius: 3px;
+  font-size: 14px;
+  text-transform: uppercase;
+  color: #51595f;
+  border: 2px solid #e2e6e7;
+  font-weight: bold;
+  letter-spacing: 1px;
+}
+
+.feedbackButton:hover{
+  color: #e84435;
+}
+
+.remarks {
+display: flex;
+flex-direction: row;
+justify-content: start;
+align-items: center;
+margin-top: 30px;
+}
+
+.bunqButton {
+  margin-top: 50px;
+  padding: 10px 25px;
+  border-radius: 3px;
+  font-size: 14px;
+  text-transform: uppercase;
+  background: linear-gradient(0.25turn,#e84435, #f57f17);
+  color: white;
+  border: none;
+  font-weight: bold;
+  letter-spacing: 1px;
+}
+
+.bunqButton:hover {
+  background: #e84435;
+}
+
+.privacyTypography .privacyButton {
+  margin-top: 30px;
+  padding: 8px 20px;
+  border-radius: 3px;
+  font-size: 14px;
+  text-transform: uppercase;
+  color: #51595f;
+  border: 2px solid #e2e6e7;
+  font-weight: bold;
+  letter-spacing: 1px;
+}
+
+.privacyTypography .privacyButton:hover{
+  color: #e84435;
+}
+
+.bunqKeyInput{
+  margin-left: 20px;
+  padding: 5px 30px 5px 3px;
+  width: 200px;
+}
+
+.bunqKeyInput:focus{
+  outline: 2px solid #e84435;
+  color: #51595f
+}
+
+.privacyTypography{
+  font-size: 20px;
+  font-family: 'BrandonText-Bold';
+}
+
+a {
+  text-decoration: none;
+  color: black;
+}
+
+a:focus {
+  text-decoration: none;
+  color: black;
+  outline: 0px;
+}
+
+ .editForm .editProfile {
+  margin-top: 30px;
+  padding: 8px 20px;
+  border-radius: 3px;
+  font-size: 14px;
+  text-transform: uppercase;
+  color: #51595f;
+  border: 2px solid #e2e6e7;
+  font-weight: bold;
+  letter-spacing: 1px;
+  font-family: 'BrandonText-Regular';
+}
+
+
+.editProfileForm .saveEditedProfile {
+  margin-top: 40px;
+  padding: 10px 25px;
+  border-radius: 3px;
+  font-size: 14px;
+  text-transform: uppercase;
+  background: linear-gradient(0.25turn,#e84435, #f57f17);
+  color: white;
+  border: none;
+  font-weight: bold;
+  letter-spacing: 1px;
+  font-family: 'BrandonText-Regular';
+}
+
+.editProfileForm .saveEditedProfile:hover {
+  background: #e84435;
+}
+
+.editProfileForm .editProfileLabel {
+  margin-right: 10px;
+  margin-bottom: 25px;
+  font-family: 'BrandonText-Regular';
+}
+
+.privacyOnEditPage .privacyButtonOnEditPage {
+  padding: 8px 15px;
+  border-radius: 3px;
+  font-size: 13px;
+  text-transform: uppercase;
+  color: #51595f;
+  border: 2px solid #e2e6e7;
+  font-weight: bold;
+  letter-spacing: 1px;
+  font-family: 'BrandonText-Regular';
+}
+
+.privacyOnEditPage .privacyButtonOnEditPage:hover{
+  color: #e84435;
+}
+
+.readPrivacyTitle {
+  font-family: 'BrandonText-Regular';
+}
+
+.center {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.inloggen {
+  margin-right: 10%;
+}
