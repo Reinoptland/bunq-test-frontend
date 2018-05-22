@@ -18,15 +18,13 @@ export const USER_FEEDBACK_ERROR = 'USER_FEEDBACK_ERROR'
 export const USER_SIGNUP_SUCCESS = 'USER_SIGNUP_SUCCESS'
 export const USER_SIGNUP_FAILED = 'USER_SIGNUP_FAILED'
 
-export const USER_BUNQ_SUCCESS = 'USER_BUNQ_SUCCESS'
-export const USER_BUNQ_ADDED = 'USER_BUNQ_ADDED'
-export const USER_BUNQ_FAILED = 'USER_BUNQ_FAILED'
-
 export const USER_ACCEPT_PRIVACY = 'USER_ACCEPT_PRIVACY'
 export const USER_DECLINE_PRIVACY = 'USER_DECLINE_PRIVACY'
 
 export const FETCH_USER_PROFILE = "FETCH_USER_PROFILE"
 export const FETCH_USER_PROFILE_FAILED = "FETCH_USER_PROFILE_FAILED"
+
+export const DELETE_USER = "DELETE_USER"
 
 
 export const logout = () => ({
@@ -48,7 +46,7 @@ export const login = (email, password) => (dispatch) =>
       })
     })
     .catch(err => {
-      if (err.status === 400) {
+      if (err.status === 404) {
         dispatch({
           type: USER_LOGIN_FAILED,
           payload: err.response.body.message || 'Unknown error'
@@ -80,55 +78,17 @@ export const signup = (data) => (dispatch) =>
       }
     })
 
-export const bunqLogin = (id, bunqKey) => (dispatch, getState) => {
-  const state = getState()
-  if (!state.currentUser) return null
-  const jwt = state.currentUser.jwt
-
-  if (isExpired(jwt)) return dispatch(logout())
-  request
-    .put(`${baseUrl}/users/${id}`)
-    .send({ id, bunqKey })
-    .then(response => {
-      dispatch({
-        type: USER_BUNQ_ADDED
-      })
-    })
-    .then(
-      request
-        .post(`${baseUrl}/users/${id}/transactions`)
-        .send({ id, bunqKey })
-        .then(result => {
-          dispatch({
-            type: USER_BUNQ_SUCCESS,
-            payload: result.body
-          })
-        })
-    )
-    .catch(err => {
-      if (err.status === 400) {
-        dispatch({
-          type: USER_BUNQ_FAILED,
-          payload: err.response.body.message || 'Unknown error'
-        })
-      }
-      else {
-        console.error(err)
-      }
-    }
-    )
-}
-
 export const privacy = (id) => (dispatch, getState) =>{
   const state = getState()
   if (!state.currentUser) return null
   const jwt = state.currentUser.jwt
 
+  
   if (isExpired(jwt)) return dispatch(logout())
-  const permission = true
+  console.log(id)
   request
     .put(`${baseUrl}/users/${id}`)
-    .send({id, permission})
+    .send({id, permission: true})
     .then(result => {
       dispatch({
         type: USER_ACCEPT_PRIVACY,
@@ -179,8 +139,7 @@ export const feedback = (data, id) => (dispatch, getState) =>{
 export const fetchProfile = (id) => (dispatch) => {
   console.log("console loggind acxtion id", id)
   request
-    .get(`${baseUrl}/users/${id}/`)
-    // .send(id)
+    .get(`${baseUrl}/users/${id.id}/`)
     .then(result => dispatch({
       type: FETCH_USER_PROFILE,
       payload: result.body
@@ -204,6 +163,7 @@ export const fetchProfile = (id) => (dispatch) => {
         .put(`${baseUrl}/users/${id}`)
         .send(updates)
         .then(result => {
+          console.log("console logging delete action", result)
           dispatch({
             type: UPDATE_USER,
             payload: result.body
@@ -212,5 +172,32 @@ export const fetchProfile = (id) => (dispatch) => {
         .catch(err => console.error(err))
     }
 
+    export const deleteUser = (id) => (dispatch) => {
+      console.log("console logging user id in actions", id)
+      request
+        .delete(`${baseUrl}/users/${id}`)
+        .then(response => dispatch({
+          type: DELETE_USER,
+          payload: id
+        }))
+    }
+    
+    export const deleteUserTransactions = (id) => (dispatch) => {
+      request
+        .delete(`${baseUrl}/users/${id}/transactions`) 
+        .then(response => dispatch({
+          type: DELETE_USER,
+          payload: id
+        }))
+    }
 
+    export const deleteUserFeedback = (id) => (dispatch) => {
+      console.log("console logging user id in actions", id)
+      request
+        .delete(`${baseUrl}/users/${id}/feedback`) 
+        .then(response => dispatch({
+          type: DELETE_USER,
+          payload: id
+        }))
+    }
 

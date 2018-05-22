@@ -22,13 +22,14 @@ class MeerMenu extends React.Component {
     const { anchorEl } = this.state;
 
     return (
-      <div>
+      <div >
         <Button
+          className="bottom-nav"
           aria-owns={anchorEl ? 'simple-menu' : null}
           aria-haspopup="true"
           onClick={this.handleClick}
         >
-        <img src="../../../icons/meer.svg" alt="meer-icon"></img>
+          <img src="../../../icons/meer.svg" alt="meer-icon"></img>
         </Button>
         <Menu
           id="simple-menu"
@@ -38,7 +39,7 @@ class MeerMenu extends React.Component {
         >
         
           <Link to='/terms' component={TermsPage}><MenuItem onClick={this.handleClose}>Terms and conditions</MenuItem></Link>
-          <Link to='/settings'><MenuItem onClick={this.handleClose}>Settings</MenuItem></Link>
+          <Link to='/csv'><MenuItem onClick={this.handleClose}>Upload CSV file</MenuItem></Link>
           <Link to='/logout'><MenuItem onClick={this.handleClose}>Logout</MenuItem></Link>
         </Menu>
       </div>
